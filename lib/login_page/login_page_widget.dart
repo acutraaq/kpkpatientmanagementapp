@@ -1,3 +1,4 @@
+import '../admin_login_page/admin_login_page_widget.dart';
 import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -43,19 +44,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
         body: SafeArea(
           child: Stack(
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 500, 0, 0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 1,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF122939),
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: Image.asset(
-                        'assets/images/teahub.io-minimalist-ipad-wallpaper-966323.png',
-                      ).image,
-                    ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 1,
+                decoration: BoxDecoration(
+                  color: Color(0xFF122939),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: Image.asset(
+                      'assets/images/teahub.io-minimalist-ipad-wallpaper-966323.png',
+                    ).image,
                   ),
                 ),
               ),
@@ -81,7 +79,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 310, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 300, 0, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -99,7 +97,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -297,8 +295,22 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(40, 0, 0, 0),
                             child: FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                setState(() => _loadingButton2 = true);
+                                try {
+                                  await Navigator.push(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.bottomToTop,
+                                      duration: Duration(milliseconds: 300),
+                                      reverseDuration:
+                                          Duration(milliseconds: 300),
+                                      child: AdminLoginPageWidget(),
+                                    ),
+                                  );
+                                } finally {
+                                  setState(() => _loadingButton2 = false);
+                                }
                               },
                               text: 'Admin Login',
                               options: FFButtonOptions(
@@ -322,7 +334,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(62, 20, 40, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(64, 15, 40, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -334,41 +346,44 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               fontSize: 16,
                             ),
                           ),
-                          FFButtonWidget(
-                            onPressed: () async {
-                              setState(() => _loadingButton3 = true);
-                              try {
-                                await Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.bottomToTop,
-                                    duration: Duration(milliseconds: 300),
-                                    reverseDuration:
-                                        Duration(milliseconds: 300),
-                                    child: SignUpPageWidget(),
-                                  ),
-                                );
-                              } finally {
-                                setState(() => _loadingButton3 = false);
-                              }
-                            },
-                            text: 'Sign up now',
-                            options: FFButtonOptions(
-                              width: 130,
-                              height: 40,
-                              color: Color(0x003474E0),
-                              textStyle: FlutterFlowTheme.subtitle2.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFFE0EBD3),
-                                fontSize: 16,
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                setState(() => _loadingButton3 = true);
+                                try {
+                                  await Navigator.push(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.bottomToTop,
+                                      duration: Duration(milliseconds: 300),
+                                      reverseDuration:
+                                          Duration(milliseconds: 300),
+                                      child: SignUpPageWidget(),
+                                    ),
+                                  );
+                                } finally {
+                                  setState(() => _loadingButton3 = false);
+                                }
+                              },
+                              text: 'Sign up now',
+                              options: FFButtonOptions(
+                                width: 130,
+                                height: 40,
+                                color: Color(0x003474E0),
+                                textStyle: FlutterFlowTheme.subtitle2.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFFE0EBD3),
+                                  fontSize: 16,
+                                ),
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 0,
+                                ),
+                                borderRadius: 12,
                               ),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 0,
-                              ),
-                              borderRadius: 12,
+                              loading: _loadingButton3,
                             ),
-                            loading: _loadingButton3,
                           )
                         ],
                       ),

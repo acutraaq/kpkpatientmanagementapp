@@ -99,7 +99,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'BookingPage': BookingPageWidget(),
       'HomePage': HomePageWidget(),
-      'ProfilePage': ProfilePageWidget(),
+      'Profile_Page': ProfilePageWidget(),
     };
     return Scaffold(
       body: tabs[_currentPage],
@@ -123,10 +123,10 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.person_rounded,
+              Icons.person,
               size: 24,
             ),
-            label: 'Profile',
+            label: 'Home',
             tooltip: '',
           )
         ],
