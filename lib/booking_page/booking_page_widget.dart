@@ -19,12 +19,17 @@ class _BookingPageWidgetState extends State<BookingPageWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.customColor1,
       body: SafeArea(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: 800,
-          decoration: BoxDecoration(
-            color: FlutterFlowTheme.customColor1,
-          ),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [],
+              ),
+            )
+          ],
         ),
       ),
     );
